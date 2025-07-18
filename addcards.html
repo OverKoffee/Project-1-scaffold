@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Card</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="addcards.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>New Card</h1>
+      <p class="headerSubtitle">Remember to sip that caffeine...</p>
+
+      <!-- Step 1: initial form -->
+      <div id="card-form">
+        <input
+          type="text"
+          id="learnword"
+          placeholder="Enter a new word to learn..."
+        />
+        <p><button class="form-btn" id="fetchBtn">Fetch</button></p>
+      </div>
+
+      <!-- this one is hidden until they fetch the new word -->
+      <div id="flashcardFields" style="display: none">
+        <label>Front (example sentence)</label>
+        <textarea id="frontCard" rows="3"></textarea>
+
+        <label>Back (definition)</label>
+        <textarea id="backCard" rows="3"></textarea>
+
+        <button class="uniform-btn" id="saveBtn">Save Card</button>
+        <a href="index.html" class="uniform-btn">Back</a>
+      </div>
+    </div>
+  </body>
+</html>

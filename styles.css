@@ -1,0 +1,76 @@
+html {
+  font-size: 100%;
+}
+
+/* set defaults unless I override/specify changes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f7f7f7;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* my main centered container */
+.container {
+  text-align: center;
+  max-width: 30rem;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #3a3a3a;
+}
+
+.headerSubtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.cardInputLabel {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.uniform-btn {
+  background: #5c5550;
+  color: white;
+  border: none;
+  padding: 0.75em 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+a .uniform-btn:hover {
+  background: #3b3632;
+}
+
+.form-btn {
+  background: #5c5550;
+  color: white;
+  border: none;
+  margin-top: 0.75rem;
+  padding: 0.5em 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
