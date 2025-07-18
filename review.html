@@ -9,11 +9,35 @@
   </head>
   <body>
     <div class="container">
-      <h1>Review Mode</h1>
-      <p class="headerSubtitle">Review flashcards page... ^_^</p>
+      <h1>Review Flashcards</h1>
+      <p class="headerSubtitle">If you're coffee is empty, refill it.</p>
 
-      <a href="index.html">
-        <button class="uniform-btn">Back</button>
-      </a>
+      <!-- If no cards added yet, show this; otherwise hide it -->
+      <div id="noCards" style="display: none">
+        <p>No flashcards yet. <a href="addcards.html">Add cards first!</a></p>
+      </div>
+
+      <div id="reviewArea" style="display: none">
+        <p><strong>Front:</strong></p>
+        <p id="cardFront" class="card-text"></p>
+
+        <div class="button-group">
+          <button id="showAnswerBtn" class="uniform-btn">Show Answer</button>
+        </div>
+
+        <div id="backSection" style="display: none; margin-top: 1.5rem">
+          <p><strong>Back:</strong></p>
+          <p id="cardBack" class="card-text"></p>
+
+          <div class="button-group">
+            <button id="markLearnedBtn" class="uniform-btn">
+              Mark Learned
+            </button>
+            <button id="nextCardBtn" class="uniform-btn">Next Card</button>
+            <a href="index.html" class="uniform-btn">Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

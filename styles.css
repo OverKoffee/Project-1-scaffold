@@ -1,7 +1,3 @@
-html {
-  font-size: 100%;
-}
-
 /* set defaults unless I override/specify changes */
 * {
   margin: 0;
@@ -73,4 +69,42 @@ a .uniform-btn:hover {
   cursor: pointer;
   text-decoration: none;
   transition: background 0.3s ease;
+}
+
+#flashcard-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+#flashcard-form label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #555;
+}
+
+#flashcard-form textarea {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.5rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  resize: vertical;
+  margin-bottom: 0.5rem;
+}
+
+#flashcard-form .uniform-btn {
+  margin-top: 3rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
 }
