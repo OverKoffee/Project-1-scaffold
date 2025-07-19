@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Review</title>
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="flashcardStats.js"></script>
     <script defer src="review.js"></script>
   </head>
   <body>
     <div class="container">
       <h1>Review Flashcards</h1>
       <p class="headerSubtitle">If you're coffee is empty, refill it.</p>
+
+      <p id="flashcardStats" class="flashcard-stats"></p>
 
       <!-- If no cards added yet, show this; otherwise hide it -->
       <div id="noCards" style="display: none">
@@ -25,7 +28,7 @@
           <button id="showAnswerBtn" class="uniform-btn">Show Answer</button>
         </div>
 
-        <div id="backSection" style="display: none; margin-top: 1.5rem">
+        <div id="backSection">
           <p><strong>Back:</strong></p>
           <p id="cardBack" class="card-text"></p>
 

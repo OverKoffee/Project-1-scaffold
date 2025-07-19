@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add New Card</title>
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="flashcardStats.js"></script>
     <script defer src="addcards.js"></script>
   </head>
   <body>
     <div class="container">
       <h1>New Card</h1>
       <p class="headerSubtitle">Remember to sip that caffeine...</p>
+
+      <p id="flashcardStats" class="flashcard-stats"></p>
 
       <!-- initial form to fetch a new word to learn-->
       <div id="fetchcard-form">
@@ -21,19 +24,19 @@
         />
         <p>
           <button class="form-btn" id="fetchBtn">Fetch</button>
-          <a href="index.html" class="form-btn">Back</a>
+          <a href="index.html" class="form-btn">Home</a>
         </p>
       </div>
 
       <!-- this form is hidden until they fetch the new word -->
       <div id="flashcard-form" style="display: none">
         <div class="field-group">
-          <label for="frontCard">Front (example sentence)</label>
+          <label for="frontCard">Front Card</label>
           <textarea id="frontCard" rows="2"></textarea>
         </div>
 
         <div class="field-group">
-          <label for="backCard">Back (definition)</label>
+          <label for="backCard">Back Card</label>
           <textarea id="backCard" rows="2"></textarea>
         </div>
 

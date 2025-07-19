@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const manager = new FlashcardManager();
   let flashcards = manager.getCards();
   let currentIndex = 0;
+  let displayedIndex = 0;
 
   const noCards = document.getElementById("noCards");
   const reviewArea = document.getElementById("reviewArea");
@@ -42,19 +43,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showCard(index) {
     const card = flashcards[index];
+    displayedIndex = index;
+
     cardFront.textContent = card.front;
     cardBack.textContent = card.back;
+
     backSection.style.display = "none";
     showAnswerBtn.style.display = "block";
   }
 
   function nextCard() {
-    currentIndex++;
-    if (currentIndex >= flashcards.length) {
+    let startIndex = currentIndex;
+    let found = false;
+
+    do {
+      currentIndex++;
+      if (currentIndex >= flashcards.length) {
+        currentIndex = 0; // restart
+      }
+
+      if (flashcards[currentIndex].status === "learning") {
+        found = true;
+      }
+    } while (!found && currentIndex !== startIndex);
+
+    if (found) {
+      showCard(currentIndex);
+    } else {
       alert("Congrats, you're American now!");
-      currentIndex = 0;
     }
-    showCard(currentIndex);
   }
 
   showCard(currentIndex);
@@ -65,9 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   markLearnedBtn.addEventListener("click", () => {
-    manager.markLearned(currentIndex);
+    manager.markLearned(displayedIndex);
+
     flashcards = manager.getCards();
     alert("Marked as learned!");
+
+    if (typeof updateFlashcardStats === "function") {
+      updateFlashcardStats();
+    }
+
+    nextCard();
   });
 
   nextCardBtn.addEventListener("click", () => {
