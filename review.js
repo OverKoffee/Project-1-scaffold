@@ -22,6 +22,8 @@ class FlashcardManager {
 document.addEventListener("DOMContentLoaded", () => {
   const manager = new FlashcardManager();
   let flashcards = manager.getCards();
+  let currentIndex = 0;
+
   const noCards = document.getElementById("noCards");
   const reviewArea = document.getElementById("reviewArea");
   const cardFront = document.getElementById("cardFront");
@@ -30,8 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const backSection = document.getElementById("backSection");
   const markLearnedBtn = document.getElementById("markLearnedBtn");
   const nextCardBtn = document.getElementById("nextCardBtn");
-
-  let currentIndex = 0;
 
   if (flashcards.length === 0) {
     noCards.style.display = "block";
