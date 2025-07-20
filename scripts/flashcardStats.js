@@ -9,7 +9,7 @@ function updateFlashcardStats() {
   ).length;
 
   if (totalCards === 0) {
-    statsElement.textContent = `0 total cards • 0 need review`;
+    statsElement.textContent = `0 total cards - 0 need review`;
   } else {
     statsElement.textContent = `${totalCards} total cards - ${learningCards} need review`;
   }
