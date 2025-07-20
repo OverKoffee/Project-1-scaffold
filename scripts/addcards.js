@@ -45,10 +45,8 @@ function initializeAddCardPage() {
   const fetchBtn = document.getElementById("fetchBtn");
   const flashcardFields = document.getElementById("flashcard-form");
   const cardForm = document.getElementById("fetchcard-form");
-
   const frontCard = document.getElementById("frontCard");
   const backCard = document.getElementById("backCard");
-
   const saveCardBtn = document.getElementById("saveCardBtn");
   const backCardBtn = document.getElementById("backCardBtn");
 
@@ -61,6 +59,20 @@ function initializeAddCardPage() {
     learnwordInput.focus();
   };
 
+  /* --- Below container, show a status text, then fade away --- */
+  function showAndFadeMessage(message) {
+    const fadeResponse = document.getElementById("fadeResponseText");
+    fadeResponse.textContent = message;
+    fadeResponse.classList.remove("fade-out");
+    fadeResponse.classList.add("show");
+
+    setTimeout(() => {
+      fadeResponse.classList.remove("show");
+      fadeResponse.classList.add("fade-out");
+    }, 400);
+  }
+
+  /* --- Button Listeners --- */
   fetchBtn.addEventListener("click", async () => {
     const word = learnwordInput.value.trim();
     if (!word) {
@@ -80,7 +92,7 @@ function initializeAddCardPage() {
       const definition = data[0].meanings[0].definitions[0].definition;
       const exampleSentence =
         data[0].meanings[0].definitions[0].example ||
-        `An example for "${word}" does not exist. Create your own.`;
+        `An example for "${word}" does not exist. Create/Paste your own.`;
 
       frontCard.value = exampleSentence;
       backCard.value = `${word}: ${definition}`;
@@ -93,7 +105,6 @@ function initializeAddCardPage() {
     }
   });
 
-  // Save card button
   saveCardBtn.addEventListener("click", () => {
     const front = frontCard.value.trim();
     const back = backCard.value.trim();
@@ -103,20 +114,16 @@ function initializeAddCardPage() {
       return;
     }
 
-    // Save card w/ FlashcardManager,
-    // trigger resave in localStorage w/ updated array
     flashcardManager.addCard(front, back);
 
-    console.log("Flashcards so far:", flashcardManager.getCards());
-    alert("Card saved!");
+    showAndFadeMessage("Card saved...");
 
     resetFlashcardForm();
     updateFlashcardStats();
   });
 
-  // Back button inside flashcard form,
-  // returns to fetch card form
   backCardBtn.addEventListener("click", () => {
     resetFlashcardForm();
   });
+  /* --- End of Button Listeners --- */
 }

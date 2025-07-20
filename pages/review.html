@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Card Review</title>
+    <title>Review Cards</title>
     <link rel="stylesheet" href="/assets/styles/styles.css" />
     <script defer src="/scripts/flashcardStats.js"></script>
     <script defer src="/scripts/review.js"></script>
@@ -14,19 +14,20 @@
         <img
           src="/assets/images/coffeeheader.png"
           alt="Coffee Img"
-          class="coffeeHeader-icon"
+          class="imageHeader-icon"
         />
-        <h1>Review Cards</h1>
+        <h1 id="reviewHeader">Review Cards</h1>
         <img
           src="/assets/images/bookheader.png"
           alt="Book Img"
-          class="coffeeHeader-icon"
+          class="imageHeader-icon"
         />
       </div>
       <p class="headerSubtitle"><i>If your coffee is empty, refill it.</i></p>
 
       <p id="flashcardStats" class="flashcard-stats"></p>
 
+      <!-- This is the Front section when reviewing, visible by default.-->
       <div id="reviewArea">
         <p><b>Front</b></p>
         <p id="cardFront" class="card-text"></p>
@@ -35,6 +36,7 @@
           <button id="showAnswerBtn" class="uniform-btn">Show Answer</button>
         </div>
 
+        <!-- This is the Back section when reviewing, invisible by default.-->
         <div id="backSection">
           <p><b>Back</b></p>
           <p id="cardBack" class="card-text"></p>
@@ -44,10 +46,15 @@
               Mark Learned
             </button>
             <button id="nextCardBtn" class="uniform-btn">Next Card</button>
-            <a href="/pages/index.html" class="uniform-btn">Back</a>
+            <a href="/pages/index.html" id="back-btn" class="uniform-btn"
+              >Back</a
+            >
           </div>
         </div>
       </div>
+    </div>
+    <div id="fadeResponseText" class="fadeResponseText">
+      <h3 style="color: #4b3832">Skipped...</h3>
     </div>
   </body>
 </html>
