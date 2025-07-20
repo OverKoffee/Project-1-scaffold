@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f3f0, #d7ccc8);
+  color: #3e2723;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+}
+
+/* Main Container */
+.container {
+  background: #fefaf6;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(75, 56, 50, 0.15);
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4b3832;
+  margin-bottom: 0.5rem;
+}
+
+.headerSubtitle {
+  font-size: 0.95rem;
+  color: #6f4e37;
+  margin-bottom: 3rem;
+}
+
+/* Flex container to align image + text */
+.header-with-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Image icon size */
+.coffeeHeader-icon {
+  width: 70px;
+  height: auto;
+  max-width: 80px;
+  border-radius: 0.4rem;
+  padding-bottom: 20px;
+}
+
+.cardInputLabel {
+  font-size: 0.8rem;
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+.uniform-btn {
+  background: #6f4e37;
+  color: #fefaf6;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+/* Note: need <a> as well b/c some buttons are link styled as buttons */
+.uniform-btn:hover {
+  background: #b0866f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(75, 56, 50, 0.15);
+}
+
+/* Note: need <a> as well b/c some buttons are link styled as buttons */
+.uniform-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.3);
+}
+
+#markLearnedBtn {
+  background: #4caf50;
+}
+#markLearnedBtn:hover {
+  background: #43a047;
+}
+#nextCardBtn {
+  background: #6f4e37;
+}
+#nextCardBtn:hover {
+  background: #b0866f;
+}
+
+/* Flashcard Form Layout */
+#flashcard-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+#flashcard-form label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #555555;
+}
+
+#flashcard-form textarea {
+  width: 400px;
+  height: 50px;
+  padding: 0.5rem;
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#flashcard-form .uniform-btn {
+  margin-top: 3rem;
+}
+
+/* Add Cards group */
+.inputcard-group {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Add Cards label headers */
+.inputcard-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 20px;
+  display: block;
+  color: #555555;
+}
+
+/* Add Cards textareas - UNFOCUSED */
+.inputcard-group textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  border: 1px solid #c8b39e;
+  border-radius: 0.6rem;
+  background: #fefaf6;
+  transition: all 0.2s ease-in-out;
+  resize: none;
+}
+
+/* Add Cards textareas - FOCUSED */
+.inputcard-group textarea:focus {
+  border-color: #6f4e37;
+  background: #fffaf5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.15);
+}
+
+/* Button Groups */
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Review Cards form */
+#reviewArea p {
+  margin: 0.8rem 0;
+  line-height: 1.5;
+}
+
+/* Review Cards textareas */
+.card-text {
+  font-size: 1.05rem;
+  background: #fffaf5;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: 2px solid #e6d5c3;
+}
+
+/* Back Card via click "Show Answer" */
+#backSection {
+  display: none;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Click "Show Answer" to fade in Back card */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flashcard stats total counter */
+.flashcard-stats {
+  font-size: 0.95rem;
+  color: #6f4e37;
+  margin-bottom: 1.5rem;
+}
+
+.fetchword-group {
+  width: 200px;
+  min-height: 20px;
+  padding: 0.75rem;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  border: 1px solid #dddddd;
+  border-radius: 0.6rem;
+  background: #fafafa;
+  transition: all 0.2s ease-in-out;
+  resize: none;
+}
+
+.fetchword-group:focus {
+  border-color: #5c5550;
+  background: white;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92, 85, 80, 0.1);
+}

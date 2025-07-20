@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Card</title>
+    <link rel="stylesheet" href="/assets/styles/styles.css" />
+    <script defer src="/scripts/flashcardStats.js"></script>
+    <script defer src="/scripts/addcards.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-with-image">
+        <img
+          src="/assets/images/coffeeheader.png"
+          alt="Coffee Img"
+          class="coffeeHeader-icon"
+        />
+        <h1>Add Card</h1>
+        <img
+          src="/assets/images/bookheader.png"
+          alt="Book Img"
+          class="coffeeHeader-icon"
+        />
+      </div>
+      <p class="headerSubtitle">Refill your coffee...</p>
+
+      <p id="flashcardStats" class="flashcard-stats"></p>
+
+      <!-- initial form to fetch a new word to learn-->
+      <div id="fetchcard-form">
+        <input
+          type="text"
+          class="fetchword-group"
+          id="learnword"
+          placeholder="Enter a new word to learn.."
+        />
+        <p>
+          <button class="uniform-btn" id="fetchBtn">Fetch</button>
+          <a href="/pages/index.html" class="uniform-btn">Home</a>
+        </p>
+      </div>
+
+      <!-- this form is hidden until they fetch the new word -->
+      <div id="flashcard-form" style="display: none">
+        <div class="inputcard-group">
+          <label for="frontCard">Front Card</label>
+          <textarea id="frontCard" rows="2"></textarea>
+        </div>
+
+        <div class="inputcard-group">
+          <label for="backCard">Back Card</label>
+          <textarea id="backCard" rows="2"></textarea>
+        </div>
+
+        <div class="button-group">
+          <button class="uniform-btn" id="saveCardBtn">Save Card</button>
+          <button class="uniform-btn" id="backCardBtn">Back</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

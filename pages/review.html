@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Review</title>
+    <link rel="stylesheet" href="/assets/styles/styles.css" />
+    <script defer src="/scripts/flashcardStats.js"></script>
+    <script defer src="/scripts/review.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-with-image">
+        <img
+          src="/assets/images/coffeeheader.png"
+          alt="Coffee Img"
+          class="coffeeHeader-icon"
+        />
+        <h1>Review Cards</h1>
+        <img
+          src="/assets/images/bookheader.png"
+          alt="Book Img"
+          class="coffeeHeader-icon"
+        />
+      </div>
+      <p class="headerSubtitle"><i>If your coffee is empty, refill it.</i></p>
+
+      <p id="flashcardStats" class="flashcard-stats"></p>
+
+      <!-- If no cards added yet, show this; otherwise hide it -->
+      <div id="noCards" style="display: none">
+        <p>
+          No flashcards yet. <a href="/pages/addcards.html">Add cards first!</a>
+        </p>
+      </div>
+
+      <div id="reviewArea" style="display: none">
+        <p><strong>Front</strong></p>
+        <p id="cardFront" class="card-text"></p>
+
+        <div class="button-group">
+          <button id="showAnswerBtn" class="uniform-btn">Show Answer</button>
+        </div>
+
+        <div id="backSection">
+          <p><strong>Back</strong></p>
+          <p id="cardBack" class="card-text"></p>
+
+          <div class="button-group">
+            <button id="markLearnedBtn" class="uniform-btn">
+              Mark Learned
+            </button>
+            <button id="nextCardBtn" class="uniform-btn">Next Card</button>
+            <a href="/pages/index.html" class="uniform-btn">Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
