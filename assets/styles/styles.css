@@ -183,8 +183,9 @@ h1 {
   margin-top: 1.5rem;
 }
 
-/* Review Cards form */
+/* Review Cards initial form */
 #reviewArea p {
+  display: block;
   margin: 0.8rem 0;
   line-height: 1.5;
 }

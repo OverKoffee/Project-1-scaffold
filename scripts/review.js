@@ -19,13 +19,16 @@ class FlashcardManager {
   }
 }
 
+// IDEA - add leaderboard ranking;
+// allow user to put username for new flashcard session,
+// otherwise load existing flashcards for the existing user
+
 document.addEventListener("DOMContentLoaded", () => {
   const manager = new FlashcardManager();
   let flashcards = manager.getCards();
   let currentIndex = 0;
   let displayedIndex = 0;
 
-  const noCards = document.getElementById("noCards");
   const reviewArea = document.getElementById("reviewArea");
   const cardFront = document.getElementById("cardFront");
   const cardBack = document.getElementById("cardBack");
@@ -34,11 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const markLearnedBtn = document.getElementById("markLearnedBtn");
   const nextCardBtn = document.getElementById("nextCardBtn");
 
-  if (flashcards.length === 0) {
-    noCards.style.display = "block";
-    return;
-  } else {
+  if (flashcards.length !== 0) {
+    console.log("backSection is: " + backSection.style.display);
+    console.log("reviewArea is: " + reviewArea.style.display);
     reviewArea.style.display = "block";
+  } else {
+    console.log("it is set to none");
+    reviewArea.style.display = "none";
   }
 
   function showCard(index) {
@@ -48,8 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardFront.textContent = card.front;
     cardBack.textContent = card.back;
 
-    backSection.style.display = "none";
-    showAnswerBtn.style.display = "block";
+    hideBackSection();
   }
 
   function nextCard() {
@@ -77,8 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   showCard(currentIndex);
 
   showAnswerBtn.addEventListener("click", () => {
-    backSection.style.display = "block";
-    showAnswerBtn.style.display = "none";
+    showBackSection();
   });
 
   markLearnedBtn.addEventListener("click", () => {
@@ -97,4 +100,14 @@ document.addEventListener("DOMContentLoaded", () => {
   nextCardBtn.addEventListener("click", () => {
     nextCard();
   });
+
+  function showBackSection() {
+    backSection.style.display = "block";
+    showAnswerBtn.style.display = "none";
+  }
+
+  function hideBackSection() {
+    backSection.style.display = "none";
+    showAnswerBtn.style.display = "block";
+  }
 });
