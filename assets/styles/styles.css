@@ -31,7 +31,7 @@ h1 {
 }
 
 /* --- Container Subtitle / message --- */
-.headerSubtitle {
+.header-subtitle {
   font-size: 0.95rem;
   color: #6f4e37;
   margin-bottom: 3rem;
@@ -80,16 +80,16 @@ h1 {
   box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.3);
 }
 
-#markLearnedBtn {
+#mark-learned-btn {
   background: #4caf50;
 }
-#markLearnedBtn:hover {
+#mark-learned-btn:hover {
   background: #43a047;
 }
-#nextCardBtn {
+#next-card-btn {
   background: #6f4e37;
 }
-#nextCardBtn:hover {
+#next-card-btn:hover {
   background: #b0866f;
 }
 
@@ -190,7 +190,7 @@ h1 {
 }
 
 /* --- Back Card via click "Show Answer" --- */
-#backSection {
+#back-section {
   display: none;
   margin-top: 1.5rem;
   animation: fadeIn 0.3s ease-in-out;
@@ -249,4 +249,58 @@ h1 {
 .fadeResponseText.fade-out {
   opacity: 0;
   transition: opacity 2s ease;
+}
+
+/* --- Managing Cards (managecards.html)--- */
+.cardlist-container {
+  border: 2px solid black;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background: #fefaf6;
+  max-height: 400px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(75, 56, 50, 0.15);
+  overflow-y: auto;
+}
+
+.card-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background: #6f4e3719;
+}
+#edit-btn {
+  background: #6f4e37;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+#edit-btn:hover {
+  background: #b0866f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(75, 56, 50, 0.15);
+}
+#edit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.3);
+}
+#delete-btn {
+  background: #710000;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+#delete-btn:hover {
+  background: #f42929d1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(75, 56, 50, 0.15);
+}
+#delete-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.3);
 }

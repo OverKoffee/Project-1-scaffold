@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
   let displayedIndex = 0;
 
-  const cardFront = document.getElementById("cardFront");
-  const cardBack = document.getElementById("cardBack");
-  const showAnswerBtn = document.getElementById("showAnswerBtn");
-  const backSection = document.getElementById("backSection");
-  const markLearnedBtn = document.getElementById("markLearnedBtn");
-  const nextCardBtn = document.getElementById("nextCardBtn");
+  const cardFront = document.getElementById("card-front");
+  const cardBack = document.getElementById("card-back");
+  const showAnswerBtn = document.getElementById("show-answer-btn");
+  const backSection = document.getElementById("back-section");
+  const markLearnedBtn = document.getElementById("mark-learned-btn");
+  const nextCardBtn = document.getElementById("next-card-btn");
   const completedReviewText = `<h1>Congrats! You're American now!</h1>
          <a href="/index.html" class="uniform-btn">Back</a>`;
 
@@ -77,8 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* --- Default show first "learning" card --- */
-  showCard(currentIndex);
+  nextCard();
 
   /* --- Button Listeners --- */
   showAnswerBtn.addEventListener("click", () => {
