@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const markLearnedBtn = document.getElementById("markLearnedBtn");
   const nextCardBtn = document.getElementById("nextCardBtn");
   const completedReviewText = `<h1>Congrats! You're American now!</h1>
-         <a href="/pages/index.html" class="uniform-btn">Back</a>`;
+         <a href="/index.html" class="uniform-btn">Back</a>`;
 
   /* --- Check first if there are reviews to do --- */
   if (allCardsLearned()) {

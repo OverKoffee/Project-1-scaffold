@@ -93,7 +93,7 @@ function initializeAddCardPage() {
         const definition = data[0].meanings[0].definitions[0].definition;
         const exampleSentence =
           data[0].meanings[0].definitions[0].example ||
-          `An example for "${word}" does not exist. Create/Paste your own.`;
+          `Example for "${word}" does not exist--paste your own.`;
 
         frontCard.value = exampleSentence;
         backCard.value = `${word}: ${definition}`;
