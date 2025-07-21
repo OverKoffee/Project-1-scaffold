@@ -1,27 +1,6 @@
-class FlashcardManager {
-  constructor() {
-    this.flashcards = JSON.parse(localStorage.getItem("flashcards") || "[]");
-  }
-
-  save() {
-    localStorage.setItem("flashcards", JSON.stringify(this.flashcards));
-  }
-
-  getCards() {
-    return this.flashcards;
-  }
-
-  markLearned(index) {
-    if (this.flashcards[index]) {
-      this.flashcards[index].status = "learned";
-      this.save();
-    }
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  const manager = new FlashcardManager();
-  let flashcards = manager.getCards();
+  const flashcardManager = new FlashcardManager();
+  let flashcards = flashcardManager.getCards();
   let currentIndex = 0;
   let displayedIndex = 0;
 
@@ -78,8 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   markLearnedBtn.addEventListener("click", () => {
-    manager.markLearned(displayedIndex);
-    flashcards = manager.getCards();
+    flashcardManager.markLearned(displayedIndex);
+    flashcards = flashcardManager.getCards();
     showAndFadeMessage("Card learned...");
     if (typeof updateFlashcardStats === "function") {
       updateFlashcardStats();

@@ -1,47 +1,12 @@
-class FlashcardManager {
-  constructor() {
-    // Get the existing flashcards stored in localStorage
-    // otherwise, start with empty array
-    this.flashcards = JSON.parse(localStorage.getItem("flashcards") || "[]");
-  }
-
-  addCard(word, front, back) {
-    const newCard = {
-      word,
-      front,
-      back,
-      status: "learning", // I'll update to "learned" once card is reviewed
-    };
-    this.flashcards.push(newCard);
-    this.save();
-  }
-
-  save() {
-    localStorage.setItem("flashcards", JSON.stringify(this.flashcards));
-  }
-
-  getCards() {
-    return this.flashcards;
-  }
-
-  markLearned(index) {
-    if (this.flashcards[index]) {
-      this.flashcards[index].status = "learned";
-      this.save();
-    }
-  }
-}
-
-const flashcardManager = new FlashcardManager();
-
 document.addEventListener("DOMContentLoaded", () => {
+  const flashcardManager = new FlashcardManager();
   const path = window.location.pathname;
   if (path.endsWith("addcards.html")) {
-    initializeAddCardPage();
+    initializeAddCardPage(flashcardManager);
   }
 });
 
-function initializeAddCardPage() {
+function initializeAddCardPage(flashcardManager) {
   const learnwordInput = document.getElementById("learnword");
   const fetchBtn = document.getElementById("fetchBtn");
   const flashcardFields = document.getElementById("flashcard-form");

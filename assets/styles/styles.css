@@ -258,49 +258,34 @@ h1 {
   border-radius: 0.5rem;
   background: #fefaf6;
   max-height: 400px;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 30px;
   box-shadow: 0 4px 20px rgba(75, 56, 50, 0.15);
   overflow-y: auto;
 }
-
 .card-entry {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: left;
   border: 1px solid #ddd;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   background: #6f4e3719;
 }
-#edit-btn {
-  background: #6f4e37;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin-left: 0.5rem;
-}
-#edit-btn:hover {
-  background: #b0866f;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(75, 56, 50, 0.15);
-}
-#edit-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.3);
-}
-#delete-btn {
+.delete-btn {
   background: #710000;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-left: 0.5rem;
 }
-#delete-btn:hover {
+.delete-btn:hover {
   background: #f42929d1;
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(75, 56, 50, 0.15);
 }
-#delete-btn:focus {
+.delete-btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.3);
 }

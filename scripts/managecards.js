@@ -1,30 +1,6 @@
-class FlashcardManager {
-  constructor() {
-    this.flashcards = JSON.parse(localStorage.getItem("flashcards") || "[]");
-  }
-
-  save() {
-    localStorage.setItem("flashcards", JSON.stringify(this.flashcards));
-  }
-
-  getCards() {
-    return this.flashcards;
-  }
-
-  deleteCard(index) {
-    this.flashcards.splice(index, 1);
-    this.save();
-  }
-
-  updateCard(index, updatedCard) {
-    this.flashcards[index] = { ...this.flashcard[index], ...updatedCard };
-    this.save();
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  const manager = new FlashcardManager();
-  const cards = manager.getCards();
+  const flashcardManager = new FlashcardManager();
+  const cards = flashcardManager.getCards();
   const listContainer = document.getElementById("cardsList");
 
   // Expand container for managing cards
@@ -36,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showCardList() {
-    const cards = manager.getCards();
+    const cards = flashcardManager.getCards();
     let cardEntryHTML = "";
 
     //build innerHTML for listContainer
@@ -46,23 +22,27 @@ document.addEventListener("DOMContentLoaded", () => {
         `
         <div class="card-entry">
             <p><b>${cards[i].word}</b> : ${cards[i].front} : ${cards[i].back}</p> 
-            <button class="uniform-btn" id="edit-btn" data-index="${i}">Edit</button>
-            <button class="uniform-btn" id="delete-btn" data-index="${i}">Delete</button>
+            <button class="uniform-btn delete-btn" data-index="${i}">Delete</button>
         </div>
         `;
     }
 
     listContainer.innerHTML = cardEntryHTML;
-    console.log(`listContainer.innerHTML = ${listContainer.innerHTML}`);
-    console.log(`cardEntryHTML = ${cardEntryHTML}`);
+
+    attachDeleteListeners();
+  }
+
+  function attachDeleteListeners() {
+    document.querySelectorAll(".delete-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const index = event.target.dataset.index; // get card index
+        if (confirm("Delete this card?")) {
+          flashcardManager.deleteCard(index);
+          showCardList();
+        }
+      });
+    });
   }
 
   showCardList();
-
-  /* --- Button Listeners (edit, delete) --- */
-  function deleteButtonListener() {
-    // Code to delete the index attached to the card,
-    // then pass it to manager.deleteCard(...),
-    // then refresh list, showCardList()
-  }
 });
