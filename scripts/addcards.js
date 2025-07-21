@@ -5,8 +5,9 @@ class FlashcardManager {
     this.flashcards = JSON.parse(localStorage.getItem("flashcards") || "[]");
   }
 
-  addCard(front, back) {
+  addCard(word, front, back) {
     const newCard = {
+      word,
       front,
       back,
       status: "learning", // I'll update to "learned" once card is reviewed
@@ -49,6 +50,7 @@ function initializeAddCardPage() {
   const backCard = document.getElementById("backCard");
   const saveCardBtn = document.getElementById("saveCardBtn");
   const backCardBtn = document.getElementById("backCardBtn");
+  let learnWord = ""; // track the word the user is adding
 
   const resetFlashcardForm = () => {
     frontCard.value = "";
@@ -75,6 +77,8 @@ function initializeAddCardPage() {
   /* --- Button Listeners --- */
   fetchBtn.addEventListener("click", () => {
     const word = learnwordInput.value.trim();
+    learnWord = word;
+
     if (!word) {
       alert("Please enter a word first.");
       return;
@@ -116,7 +120,7 @@ function initializeAddCardPage() {
       return;
     }
 
-    flashcardManager.addCard(front, back);
+    flashcardManager.addCard(learnWord, front, back);
 
     showAndFadeMessage("Card saved...");
 

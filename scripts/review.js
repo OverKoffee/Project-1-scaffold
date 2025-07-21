@@ -50,8 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function showCard(index) {
     const card = flashcards[index];
     displayedIndex = index;
-    cardFront.textContent = card.front;
-    cardBack.textContent = card.back;
+    cardFront.innerHTML = card.front.replace(
+      new RegExp(`\\b${card.word}\\b`, "gi"),
+      `<b>${card.word}</b>`
+    );
+    cardBack.innerHTML = card.back.replace(
+      new RegExp(`\\b${card.word}\\b`, "gi"),
+      `<b>${card.word}</b>`
+    );
     showBackSection(false);
   }
 
