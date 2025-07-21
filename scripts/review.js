@@ -19,13 +19,6 @@ class FlashcardManager {
   }
 }
 
-/* 
-IDEA - if time allows, add leaderboard ranking;
-allow user to put username for new flashcard session,
-otherwise load existing flashcards for the existing user,
-include username property to attribute each card to a user
-*/
-
 document.addEventListener("DOMContentLoaded", () => {
   const manager = new FlashcardManager();
   let flashcards = manager.getCards();
