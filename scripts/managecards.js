@@ -58,4 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   showCardList();
+
+  /* --- Button Listeners (edit, delete) --- */
+  function deleteButtonListener() {
+    // Code to delete the index attached to the card,
+    // then pass it to manager.deleteCard(...),
+    // then refresh list, showCardList()
+  }
 });
