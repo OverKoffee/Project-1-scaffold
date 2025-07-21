@@ -73,7 +73,7 @@ function initializeAddCardPage() {
   }
 
   /* --- Button Listeners --- */
-  fetchBtn.addEventListener("click", async () => {
+  fetchBtn.addEventListener("click", () => {
     const word = learnwordInput.value.trim();
     if (!word) {
       alert("Please enter a word first.");
@@ -82,27 +82,29 @@ function initializeAddCardPage() {
 
     const apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
 
-    try {
-      const response = await fetch(apiURL);
-      if (!response.ok) throw new Error("Word not found.");
+    fetch(apiURL)
+      .then((response) => {
+        if (!response.ok) throw new Error("Word not found.");
+        return response.json();
+      })
+      .then((data) => {
+        console.log("API response:", data);
 
-      const data = await response.json();
-      console.log("API response:", data);
+        const definition = data[0].meanings[0].definitions[0].definition;
+        const exampleSentence =
+          data[0].meanings[0].definitions[0].example ||
+          `An example for "${word}" does not exist. Create/Paste your own.`;
 
-      const definition = data[0].meanings[0].definitions[0].definition;
-      const exampleSentence =
-        data[0].meanings[0].definitions[0].example ||
-        `An example for "${word}" does not exist. Create/Paste your own.`;
+        frontCard.value = exampleSentence;
+        backCard.value = `${word}: ${definition}`;
 
-      frontCard.value = exampleSentence;
-      backCard.value = `${word}: ${definition}`;
-
-      cardForm.style.display = "none";
-      flashcardFields.style.display = "block";
-    } catch (err) {
-      console.error(err);
-      alert("That word doesn't exist in the dictionary!");
-    }
+        cardForm.style.display = "none";
+        flashcardFields.style.display = "block";
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("That word doesn't exist in the dictionary!");
+      });
   });
 
   saveCardBtn.addEventListener("click", () => {
