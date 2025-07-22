@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const flashcardManager = new FlashcardManager();
   let flashcards = flashcardManager.getCards();
   let currentIndex = 0;
-  let displayedIndex = 0;
+  let displayedCardIndex = 0;
 
   const cardFront = document.getElementById("card-front");
   const cardBack = document.getElementById("card-back");
@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const backSection = document.getElementById("back-section");
   const markLearnedBtn = document.getElementById("mark-learned-btn");
   const nextCardBtn = document.getElementById("next-card-btn");
+
   const completedReviewText = `<h1>Congrats! You're American now!</h1>
          <a href="/index.html" class="uniform-btn">Back</a>`;
 
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showCard(index) {
     const card = flashcards[index];
-    displayedIndex = index;
+    displayedCardIndex = index;
     cardFront.innerHTML = card.front.replace(
       new RegExp(`\\b${card.word}\\b`, "gi"),
       `<b>${card.word}</b>`
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   markLearnedBtn.addEventListener("click", () => {
-    flashcardManager.markLearned(displayedIndex);
+    flashcardManager.markLearned(displayedCardIndex);
     flashcards = flashcardManager.getCards();
     showAndFadeMessage("Card learned...");
     if (typeof updateFlashcardStats === "function") {

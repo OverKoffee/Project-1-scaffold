@@ -29,6 +29,7 @@ class FlashcardManager {
     this.save();
   }
 
+  // removed for now -- need to figure out HTML for it
   updateCard(index, updatedCard) {
     this.flashcards[index] = { ...this.flashcards[index], ...updatedCard };
     this.save();
