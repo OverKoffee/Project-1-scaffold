@@ -20,5 +20,4 @@ function updateFlashcardStats() {
   }
 }
 
-// Initialize the card counter when the page loads
 document.addEventListener("DOMContentLoaded", updateFlashcardStats);

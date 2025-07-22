@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = flashcardManager.getCards();
     let cardEntryHTML = "";
 
-    //build innerHTML for listContainer
+    //build intended innerHTML for listContainer
     for (let i = 0; i < cards.length; i++) {
       cardEntryHTML =
         cardEntryHTML +
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function attachDeleteListeners() {
     document.querySelectorAll(".delete-btn").forEach((button) => {
       button.addEventListener("click", (event) => {
-        const index = event.target.dataset.index; // get card index
+        const index = event.target.dataset.index;
         if (confirm("Delete this card?")) {
           flashcardManager.deleteCard(index);
           showCardList();

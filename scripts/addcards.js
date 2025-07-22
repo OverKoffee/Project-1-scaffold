@@ -26,7 +26,6 @@ function initializeAddCardPage(flashcardManager) {
     learnwordInput.focus();
   };
 
-  /* --- Below container, show a status text, then fade away --- */
   function showAndFadeMessage(message) {
     const fadeResponse = document.getElementById("fadeResponseText");
     fadeResponse.textContent = message;
@@ -39,7 +38,6 @@ function initializeAddCardPage(flashcardManager) {
     }, 400);
   }
 
-  /* --- Button Listeners --- */
   fetchBtn.addEventListener("click", () => {
     const word = learnwordInput.value.trim();
     learnWord = word;
@@ -96,5 +94,4 @@ function initializeAddCardPage(flashcardManager) {
   backCardBtn.addEventListener("click", () => {
     resetFlashcardForm();
   });
-  /* --- End of Button Listeners --- */
 }

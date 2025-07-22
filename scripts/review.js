@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const completedReviewText = `<h1>Congrats! You're American now!</h1>
          <a href="/index.html" class="uniform-btn">Back</a>`;
 
-  /* --- Check first if there are reviews to do --- */
   if (allCardsLearned()) {
     document.querySelector(".container").innerHTML = completedReviewText;
     return;
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     showBackSection(false);
   }
 
-  /* --- User clicks "Next Card" - skips current card --- */
   function nextCard() {
     const n = flashcards.length;
     for (let i = 1; i <= n; i++) {
@@ -52,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   nextCard();
 
-  /* --- Button Listeners --- */
   showAnswerBtn.addEventListener("click", () => {
     showBackSection(true);
   });
@@ -71,9 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showAndFadeMessage("Card skipped...");
     nextCard();
   });
-  /* --- End of Button Listeners --- */
 
-  /* --- Toggle show/hide for Back card section --- */
   function showBackSection(visible) {
     if (visible) {
       backSection.style.display = "block";
@@ -84,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* --- Below container, show a status text, then fade it away --- */
   function showAndFadeMessage(message) {
     const fadeResponse = document.getElementById("fadeResponseText");
     fadeResponse.textContent = message;
@@ -97,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
   }
 
-  /* --- Determine if all reviews are complete --- */
   function allCardsLearned() {
     return flashcards.every((card) => card.status === "learned");
   }
