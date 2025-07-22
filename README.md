@@ -1,19 +1,58 @@
 # SDI31-Project-1
 
-Supra Coders SDI31 - Project 1
+## Project 1 - English Flashcard review
+
 Author: Dustin
+Program: Supra Coders SDI-31
 
-DOWNLOAD & RUN INSTRUCTIONS:
-On the repository's main page, https://github.com/OverKoffee/SDI31-Project-1 ,
-click the down arrow on the green button titled "<> Code",
-then click Download ZIP. Extract the ZIP file, and open index.html to run the application.
+This is a simple Flashcard Review Web Application that helps users create and review custom flashcards using definitions from an online dictionary API. It stores cards in the browser's localStorage, so your deck persists between sessions.
 
-HOW TO USE:
-On the index.html (homepage), click "Add New Card" to begin adding cards to your flashcard deck. From there, you may enter a word to add and click "Fetch". Then, a form to populate the "front" and "back" of the card will appear, AND, if that word exists in the dictionary API, it will populate those front and back fields for you.
+## DOWNLOAD & SETUP INSTRUCTIONS:
 
-Once you have added several cards and are ready to review them, navigate back to the homepage and click "Start Reviewing". The idea here is that you will read the sentence containing the word you wanted to learn. Once you have read the sentence, click "Show Answer" which will reveal the back card. From there, you may decide if you understood the sentence with your new word or not. If you did, click "Mark Learned", but if you didn't, click "Next Card" and it will skip that card, putting it back into the stack to review.
+Option 1: Clone the git repository
 
-Good luck!
+- git clone https://github.com/OverKoffee/SDI31-Project-1.git
+- cd SDI31-Project-1
+
+Option 2: Download ZIP
+
+- Go to Project 1 Repository (https://github.com/OverKoffee/SDI31-Project-1.git)
+- Click the green <> Code button
+- Select Download ZIP
+- Extract the ZIP file
+
+## RUNNING THE APPLICATION:
+
+- Simply open index.html in your browser
+
+## HOW TO USE:
+
+Add Flashcards
+
+- From the homepage (index.html), click "Add New Card"
+- Enter a word you want to learn and click "Fetch"
+- If the word exists in the Dictionary API, it will auto-fill a sentence (front) and definition (back)
+- You can edit the front/back fields manually if needed, then save the card
+
+Review Flashcards
+
+- Go back to the homepage and click "Start Reviewing"
+- You'll see a sentence (front) with the word hidden in context
+- Think about the meaning → click "Show Answer" to reveal the back side
+- If you understood it, click "Mark Learned" (removes it from the stack)
+- If not, click "Next Card" to revisit it later
+- Repeat Until All Cards Learned
+
+When your deck is complete, you'll see a Congrats! screen
+
+## CURRENT FEATURES
+
+Current Features
+
+- Add new flashcards manually or via Dictionary API
+- Save cards persistently using localStorage
+- Review cards in a cycle until they're all marked Learned
+- Skip cards you're unsure about (they'll stay in the stack)
 
 TO-DO (time allowing):
 
