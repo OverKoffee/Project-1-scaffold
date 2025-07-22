@@ -1,18 +1,14 @@
 const FlashcardManager = require("../scripts/flashcardManager.js");
 
 let flashcardEntry;
+flashcardEntry = null;
 
-beforeEach(() => {
-  flashcardEntry = null;
-
-  global.localStorage = {
-    getItem: jest.fn(() => null), // start empty
-    setItem: jest.fn((key, value) => {
-      // Capture for later inspection
-      flashcardEntry = { name: key, data: value };
-    }),
-  };
-});
+global.localStorage = {
+  getItem: jest.fn(() => null), // start empty
+  setItem: jest.fn((key, value) => {
+    flashcardEntry = { name: key, data: value };
+  }),
+};
 
 describe("FlashcardManager", () => {
   test("Adding a new card saves JSON correctly in localStorage", () => {
